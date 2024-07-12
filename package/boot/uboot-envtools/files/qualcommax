@@ -8,6 +8,11 @@ touch /etc/config/ubootenv
 board=$(board_name)
 
 case "$board" in
+wf,hr6001)
+	idx="$(find_mtd_index 0:APPSBLENV)"
+	[ -n "$idx" ] && \
+		ubootenv_add_uci_config "/dev/mtd$idx" "0x0" "0x10000" "0x10000"
+	;;
 compex,wpq873|\
 edgecore,eap102|\
 zyxel,nbg7815)

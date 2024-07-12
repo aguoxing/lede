@@ -24,6 +24,10 @@ platform_do_upgrade() {
 		rootfsname="rootfs"
 		mmc_do_upgrade "$1"
 		;;
+	wf,hr6001)
+		CI_UBIPART="rootfs"
+		nand_do_upgrade "$1"
+		;;
 	linksys,mr7350)
 		boot_part="$(fw_printenv -n boot_part)"
 		if [ "$boot_part" -eq "1" ]; then
