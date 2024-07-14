@@ -172,6 +172,15 @@
 			bias-pull-down;
 		};
 	};
+
+	pwm_pins: pwm_pinmux {
+		pinmux {
+			pins = "gpio18";
+			function = "pwm00";
+			drive-strength = <8>;
+		};
+	};
+
 };
 
 &dp1 {
@@ -261,7 +270,7 @@
 &switch {
 	status = "okay";
 
-	switch_lan_bmp = <0x1>; /* lan port bitmap */
+	switch_lan_bmp = <0x1e>; /* lan port bitmap */
 	switch_wan_bmp = <0x20>; /* wan port bitmap */
 	switch_mac_mode = <0x0>; /* mac mode for uniphy instance0*/
 	switch_mac_mode1 = <0xf>; /* mac mode for uniphy instance1*/
@@ -447,6 +456,8 @@
 
 &pcie0 {
 	status = "okay";
+	pinctrl-0 = <&pcie0_pins>;
+	pinctrl-names = "default";
 };
 
 &qusb_phy_1 {
@@ -466,6 +477,12 @@
 };
 
 &usb3 {
+	status = "okay";
+};
+
+&pwm {
+	pinctrl-0 = <&pwm_pins>;
+	pinctrl-names = "default";
 	status = "okay";
 };
 
