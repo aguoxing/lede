@@ -14,6 +14,7 @@ platform_do_upgrade() {
 	glinet,gl-ax1800|\
 	glinet,gl-axt1800|\
 	qihoo,360v6|\
+	wf,hr6001|\
 	xiaomi,rm1800)
 		nand_do_upgrade "$1"
 		;;
@@ -23,10 +24,6 @@ platform_do_upgrade() {
 		kernelname="0:HLOS"
 		rootfsname="rootfs"
 		mmc_do_upgrade "$1"
-		;;
-	wf,hr6001)
-		CI_UBIPART="rootfs"
-		nand_do_upgrade "$1"
 		;;
 	linksys,mr7350)
 		boot_part="$(fw_printenv -n boot_part)"
