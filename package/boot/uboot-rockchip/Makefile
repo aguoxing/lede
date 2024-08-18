@@ -190,6 +190,17 @@ define U-Boot/sv901-eaio-rk3399
   USE_RKBIN:=1
 endef
 
+define U-Boot/emb-3531-rk3399
+  BUILD_SUBTARGET:=armv8
+  NAME:=EMB 3531
+  BUILD_DEVICES:= \
+    norco_emb-3531
+  DEPENDS:=+PACKAGE_u-boot-emb-3531-rk3399:arm-trusted-firmware-rk3399
+  PKG_BUILD_DEPENDS:=arm-trusted-firmware-rockchip-vendor
+  ATF:=rk3399_bl31_v1.36.elf
+  USE_RKBIN:=1
+endef
+
 # RK3566 boards
 
 define U-Boot/panther-x2-rk3566
@@ -355,6 +366,7 @@ UBOOT_TARGETS := \
   sharevdi-h3399pc-rk3399 \
   dilusense-dlfr100-rk3399 \
   xiaobao-nas-v1-rk3399 \
+  emb-3531-rk3399 \
   nanopi-r2c-rk3328 \
   nanopi-r2s-rk3328 \
   orangepi-r1-plus-rk3328 \

@@ -42,6 +42,16 @@ define Device/dilusense_dlfr100
 endef
 TARGET_DEVICES += dilusense_dlfr100
 
+define Device/norco_emb-3531
+  DEVICE_VENDOR := NORCO
+  DEVICE_MODEL := EMB-3531
+  SOC := rk3399
+  UBOOT_DEVICE_NAME := emb-3531-rk3399
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-bin | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-r8168 -urngd
+endef
+TARGET_DEVICES += norco_emb-3531
+
 define Device/ezpro_mrkaio-m68s
   DEVICE_VENDOR := EZPRO
   DEVICE_MODEL := Mrkaio M68S
