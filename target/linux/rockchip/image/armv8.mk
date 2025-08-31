@@ -155,6 +155,17 @@ define Device/friendlyarm_nanopc-t6
 endef
 TARGET_DEVICES += friendlyarm_nanopc-t6
 
+define Device/friendlyarm_nanopi-m5
+  DEVICE_VENDOR := FriendlyARM
+  DEVICE_MODEL := NanoPi M5
+  SOC := rk3576
+  DEVICE_DTS := rockchip/rk3576-nanopi-m5
+  UBOOT_DEVICE_NAME := evb-rk3576
+  DEVICE_PACKAGES := kmod-gpio-button-hotplug
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script rk3576 | pine64-img | gzip | append-metadata
+endef
+TARGET_DEVICES += friendlyarm_nanopi-m5
+
 define Device/friendlyarm_nanopi-neo3
   DEVICE_VENDOR := FriendlyARM
   DEVICE_MODEL := NanoPi NEO3
@@ -414,6 +425,16 @@ define Device/radxa_e20c
 endef
 TARGET_DEVICES += radxa_e20c
 
+define Device/radxa_e24c
+  DEVICE_VENDOR := Radxa
+  DEVICE_MODEL := E24C
+  DEVICE_DTS := rockchip/rk3528-radxa-e24c
+  UBOOT_DEVICE_NAME := radxa-e20c-rk3528
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script rk3528 | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-gpio-button-hotplug kmod-dsa-rtl8365mb -urngd
+endef
+TARGET_DEVICES += radxa_e24c
+
 define Device/radxa_e25
   DEVICE_VENDOR := Radxa
   DEVICE_MODEL := E25
@@ -423,6 +444,26 @@ define Device/radxa_e25
   DEVICE_PACKAGES := kmod-ata-ahci-dwc kmod-r8125-rss
 endef
 TARGET_DEVICES += radxa_e25
+
+define Device/radxa_e52c
+  DEVICE_VENDOR := Radxa
+  DEVICE_MODEL := E52C
+  DEVICE_DTS := rockchip/rk3582-radxa-e52c
+  UBOOT_DEVICE_NAME := generic-rk3588
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-gpio-button-hotplug kmod-r8125-rss
+endef
+TARGET_DEVICES += radxa_e52c
+
+define Device/radxa_e54c
+  DEVICE_VENDOR := Radxa
+  DEVICE_MODEL := E54C
+  DEVICE_DTS := rockchip/rk3582-radxa-e54c
+  UBOOT_DEVICE_NAME := generic-rk3588
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-gpio-button-hotplug kmod-dsa-rtl8365mb
+endef
+TARGET_DEVICES += radxa_e54c
 
 define Device/radxa_rock-3a
   DEVICE_VENDOR := Radxa
@@ -590,6 +631,26 @@ define Device/xunlong_orangepi-5-plus
   DEVICE_PACKAGES := kmod-r8125-rss
 endef
 TARGET_DEVICES += xunlong_orangepi-5-plus
+
+define Device/xunlong_orangepi-5-max
+  DEVICE_VENDOR := Xunlong
+  DEVICE_MODEL := Orange Pi 5 Max
+  SOC := rk3588
+  UBOOT_DEVICE_NAME := orangepi-5-plus-rk3588
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-r8125-rss
+endef
+TARGET_DEVICES += xunlong_orangepi-5-max
+
+define Device/xunlong_orangepi-5-ultra
+  DEVICE_VENDOR := Xunlong
+  DEVICE_MODEL := Orange Pi 5 Ultra
+  SOC := rk3588
+  UBOOT_DEVICE_NAME := orangepi-5-plus-rk3588
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-r8125-rss
+endef
+TARGET_DEVICES += xunlong_orangepi-5-ultra
 
 define Device/xunlong_orangepi-r1-plus
   DEVICE_VENDOR := Xunlong
